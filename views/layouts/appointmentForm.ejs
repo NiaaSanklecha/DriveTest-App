@@ -1,0 +1,29 @@
+<h6 class="text-primary text-uppercase mb-2">Select Appointment</h6>
+<% if(appointments !== null && appointments.length>0){ %>
+<div class="col-12">
+  <div class="form-floating">
+    <div class="btn-group" role="group">
+      <% for(var i = 0; i < appointments.length; i++){
+      if(appointments[i].isTimeSlotAvailable == true){ %>
+      <input
+        type="radio"
+        class="btn-check"
+        name="appointmentId"
+        id="<%= appointments[i]._id %>"
+        value="<%= appointments[i]._id %>"
+      />
+      <label class="btn btn-outline-primary" for="<%= appointments[i]._id %>"
+        ><%= appointments[i].date.toISOString().split('T', 1)[0]
+        %>&nbsp;&nbsp;<%= appointments[i].time %></label
+      >
+
+      <%} } %>
+    </div>
+  </div>
+</div>
+
+<%}else{ %>
+<div class="col-12">
+  <p>No Appointments available.</p>
+</div>
+<% } %>

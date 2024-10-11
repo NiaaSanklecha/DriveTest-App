@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layouts/header'); -%>
+
+  <body>
+    <% if(message) { %>
+    <div class="alert alert-dark text-center" role="alert"><%= message %></div>
+
+    <% } %>
+
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <%- include('layouts/toolbar'); -%>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <%- include('layouts/navbar'); -%>
+    <!-- Navbar End -->
+
+    <!-- Appointment Start -->
+    <div class="container-xxl py-6">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div
+              class="position-relative overflow-hidden ps-5 pt-5 h-100"
+              style="min-height: 400px"
+            >
+              <img
+                class="position-absolute w-100 h-100"
+                src="img/about-1.jpg"
+                alt=""
+                style="object-fit: cover"
+              />
+              <img
+                class="position-absolute top-0 start-0 bg-white pe-3 pb-3"
+                src="img/about-2.jpg"
+                alt=""
+                style="width: 200px; height: 200px"
+              />
+            </div>
+          </div>
+          <% if (driveTest) { %>
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+            <h1 class="display-6 mb-4">Make An Appointment For G2 License</h1>
+
+            <form action="/g_test/update" method="post">
+              <h6 class="text-primary text-uppercase mb-2">Personal Details</h6>
+
+              <div class="row g-3">
+                <%- include('layouts/userForm'); -%> <%
+                if(driveTest.licenseStatus !== "G2" && driveTest.licenseNumber
+                !== "" && driveTest.appointmentId === null){ %> <%-
+                include('layouts/appointmentForm'); -%> <% } else
+                if(driveTest.appointmentId !== null && driveTest.licenseStatus
+                !== "G2"){ %>
+
+                <a href="/showAppointmentList" class=""
+                  >See your booked Appointments</a
+                >
+                <%}else{ %>
+                <p>No Appointments to book</p>
+                <%}%>
+                <input type="text" name="testType" value="G2" hidden />
+
+                <div class="col-12">
+                  <button class="btn btn-primary w-100 py-3" type="submit">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- Appointment End -->
+    <% if(message !=null && message.length> 0){ for (var i=0; i <
+    message.length; i++) {%><%- include('layouts/alertBox'); -%> <% }} %>
+    <!-- Footer Start -->
+    <%- include('layouts/footer'); -%>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <%- include('layouts/copyright'); -%>
+
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <%- include('layouts/scripts'); -%>
+  </body>
+</html>

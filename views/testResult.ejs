@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layouts/header'); -%>
+
+  <body>
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <%- include('layouts/toolbar'); -%>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <%- include('layouts/navbar'); -%>
+    <!-- Navbar End -->
+
+    <div
+      class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn"
+      data-wow-delay="0.1s"
+      style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn"
+    >
+      <div class="container text-center">
+        <h1 class="display-4 text-white slideInDown mb-4">Your Appointments</h1>
+      </div>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div
+        class="col-lg-3 col-md-3 wow fadeInUp"
+        data-wow-delay="0.1s"
+        style="
+          visibility: visible;
+          animation-delay: 0.1s;
+          animation-name: fadeInUp;
+        "
+      >
+        <div
+          class="courses-item d-flex flex-row bg-light overflow-hidden h-100"
+        >
+          <% if(user !== null && user.length !== 0){ for(var i= 0; i <
+          user.length;i++){ %>
+
+          <div
+            class="courses-item d-flex flex-row bg-light overflow-hidden p-4"
+          >
+            <div class="text-center p-4">
+              <h5 class="mb-3">Name</h5>
+              <p><%= user[i].firstName %> <%= user[i].lastName %></p>
+            </div>
+            <div class="text-center p-4">
+              <h5 class="mb-3">Result</h5>
+              <% if(user[i].testResult !== null){ %>
+              <p
+                class="text-uppercase <%= user[i].testResult === 'Pass' ? 'text-success' : 'text-danger' %>"
+              >
+                <%= user[i].testResult %>
+              </p>
+              <% }else{ %>
+
+              <p>Pending</p>
+              <%} %>
+            </div>
+            <% if(user[i].testResult !== "" && user[i].testResult){ %>
+            <div class="text-center p-4">
+              <h5 class="mb-3">Action</h5>
+              <form action="/update/user_appointment" method="post">
+                <input
+                  type="text"
+                  class="form-control border-0 bg-light"
+                  id="id"
+                  name="id"
+                  placeholder="Comment"
+                  value="<%= user[i]._id %>"
+                  hidden
+                />
+                <button class="btn btn-primary w-100 py-0" type="submit">
+                  Go for Next Exam
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <%}}}else{%>
+          <h1 class="mb-4">No Results to Show</h1>
+          <% }%>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Start -->
+    <%- include('layouts/footer'); -%>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <%- include('layouts/copyright'); -%>
+
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <%- include('layouts/scripts'); -%>
+  </body>
+</html>

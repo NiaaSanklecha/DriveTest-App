@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+  <a
+    href="index.html"
+    class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5"
+  >
+    <h2 class="m-0"><i class="fa fa-car text-primary me-2"></i>Drivin</h2>
+  </a>
+  <button
+    type="button"
+    class="navbar-toggler me-4"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarCollapse"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto p-4 p-lg-0">
+      <a href="/" class="nav-item nav-link">Dashboard</a>
+      <% if(loggedIn && userType === "Driver") { %>
+      <a href="/g2_test" class="nav-item nav-link">G2_Test</a>
+      <a href="/g_test" class="nav-item nav-link">G_test</a>
+      <a href="/showAppointmentList" class="nav-item nav-link"
+        >Booked Appointments</a
+      ><%} if(loggedIn && userType === "Examiner") { %>
+      <a href="/showBookedAppointment" class="nav-item nav-link"
+        >Booked Appointments</a
+      >
+      <a href="/currentAppointment" class="nav-item nav-link"
+        >Current Appointments</a
+      >
+      <%} if(loggedIn && userType === "Admin") { %>
+      <a href="/appointment" class="nav-item nav-link">Appointment</a>
+      <a href="/testResults" class="nav-item nav-link">Test Result</a>
+      <% } %> <% if(loggedIn) { %>
+      <a href="/logout" class="nav-item nav-link">Logout</a>
+      <% } %> <% if(!loggedIn) { %>
+      <a href="/login" class="nav-item nav-link">Login</a>
+      <% } %>
+    </div>
+    <!-- <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block"
+        >Get Started<i class="fa fa-arrow-right ms-3"></i
+      ></a> -->
+  </div>
+</nav>

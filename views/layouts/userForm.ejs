@@ -1,0 +1,176 @@
+<div class="col-sm-6">
+  <div class="form-floating">
+    <%if( driveTest.firstName === ""){ %>
+    <input
+      type="text"
+      class="form-control border-0 bg-light"
+      id="firstName"
+      name="firstName"
+      placeholder="First Name"
+    />
+    <% } else{ %>
+    <input
+      type="text"
+      class="form-control border-0 bg-light"
+      id="firstName"
+      name="firstName"
+      placeholder="First Name"
+      value="<%= driveTest.firstName %>"
+      disabled
+    />
+    <%} %>
+
+    <label for="firstName">First Name</label>
+  </div>
+</div>
+<div class="col-sm-6">
+  <div class="form-floating">
+    <%if( driveTest.lastName === ""){ %><input
+      type="text"
+      class="form-control border-0 bg-light"
+      id="lastName"
+      name="lastName"
+      placeholder="Last Name"
+    />
+    <% } else{ %>
+    <input
+      type="text"
+      class="form-control border-0 bg-light"
+      id="lastName"
+      name="lastName"
+      placeholder="Last Name"
+      value="<%= driveTest.lastName %>"
+      disabled
+    /><%} %>
+
+    <label for="lastName">Last Name</label>
+  </div>
+</div>
+<div class="col-sm-6">
+  <div class="form-floating">
+    <%if( driveTest.age === 0){ %>
+    <input
+      type="number"
+      class="form-control border-0 bg-light"
+      id="age"
+      name="age"
+      placeholder="Age"
+    /><% } else{ %>
+    <input
+      type="number"
+      class="form-control border-0 bg-light"
+      id="age"
+      name="age"
+      placeholder="Age"
+      value="<%= driveTest.age %>"
+      disabled
+    /><%} %>
+
+    <label for="age">Age</label>
+  </div>
+</div>
+<div class="col-sm-6">
+  <div class="form-floating">
+    <%if( driveTest.dob === ""){ %>
+    <input
+      type="date"
+      class="form-control border-0 bg-light"
+      id="dob"
+      name="dob"
+      min="1958-12-12"
+      max="2005-11-11"
+      placeholder="Date of Birth"
+    /><% } else{ %>
+    <input
+      type="date"
+      class="form-control border-0 bg-light"
+      id="dob"
+      name="dob"
+      placeholder="Date of Birth"
+      value="<%= driveTest.dob %>"
+      disabled
+    /><%} %>
+
+    <label for="cage">DOB</label>
+  </div>
+</div>
+<div class="col-12">
+  <div class="form-floating">
+    <%if( driveTest.licenseNumber === ""){ %>
+    <input
+      class="form-control border-0 bg-light"
+      id="licenseNumber"
+      name="licenseNumber"
+    />
+    <% } else{ %>
+    <input
+      class="form-control border-0 bg-light"
+      id="licenseNumber"
+      name="licenseNumber"
+      value="<%= driveTest.licenseNumber %>"
+      disabled
+    />
+    <input
+      class="form-control border-0 bg-light"
+      id="licenseNumber"
+      name="licenseNumber"
+      value="<%= driveTest.licenseNumber %>"
+      hidden
+    />
+    <%} %>
+    <label for="licenseNumber ">License Number</label>
+  </div>
+</div>
+<h6 class="text-primary text-uppercase mb-2">Car Details</h6>
+<div class="col-sm-6">
+  <div class="form-floating">
+    <input
+      type="text"
+      class="form-control border-0 bg-light"
+      id="make"
+      name="make"
+      placeholder="Make"
+      value="<%= driveTest.carDetails.make %>"
+    />
+    <label for="make">Make</label>
+  </div>
+</div>
+<div class="col-sm-6">
+  <div class="form-floating">
+    <input
+      type="text"
+      class="form-control border-0 bg-light"
+      name="model"
+      id="model"
+      placeholder="Model"
+      value="<%= driveTest.carDetails.model %>"
+    />
+    <label for="model">Model</label>
+  </div>
+</div>
+<div class="col-sm-6">
+  <div class="form-floating">
+    <input
+      type="number"
+      class="form-control border-0 bg-light"
+      id="year"
+      name="year"
+      placeholder="Year"
+      value="<%= driveTest.carDetails.year %>"
+    />
+    <label for="year">Year</label>
+  </div>
+</div>
+<div class="col-sm-6">
+  <div class="form-floating">
+    <input
+      type="text"
+      class="form-control border-0 bg-light"
+      id="plateNumber"
+      name="plateNumber"
+      placeholder="Plate Number"
+      value="<%= driveTest.carDetails.plateNumber %>"
+    />
+    <label for="plateNumber">Plate Number</label>
+  </div>
+</div>

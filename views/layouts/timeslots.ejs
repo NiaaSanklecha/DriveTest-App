@@ -1,0 +1,42 @@
+<form action="/new/appointment" method="post">
+  <p><%= timeArray.length %></p>
+  <div class="form-floating">
+    <input
+      type="date"
+      class="form-control border-0 bg-light"
+      id="date"
+      name="date"
+      placeholder="Date"
+      value="<%= date%>"
+    />
+    <label for="date">Date</label>
+  </div>
+
+  <% if(timeArray !== null ){ %>
+  <div class="btn-group" role="group" data-toggle="buttons">
+    <% for(var i = 0; i< timeArray.length; i++){ %>
+    <input
+      type="radio"
+      class="btn-check"
+      name="time"
+      id="time"
+      value="<%= timeArray[i] %>"
+    />
+    <label class="btn btn-outline-primary" for="time"
+      ><%= timeArray[i] %></label
+    >
+
+    <% }%>
+  </div>
+  <% } else { %>
+
+  <p>No available slots.</p>
+
+  <%} %>
+
+  <div class="col-12">
+    <button class="btn btn-primary w-100 py-3" type="submit">
+      Add Appointment
+    </button>
+  </div>
+</form>
